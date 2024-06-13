@@ -14,8 +14,14 @@ between jailbreak and non-jailbreak prompts.
 
 ## Experiments
 
-We experiment with multiple machine learning techniques.
+Initial experiment is to determine how well we can distinguish jailbreak
+prompts from other queries. We will experiment with multiple text feature extraction
+and machine learning techniques. These will be benchmarked against fine tuning
+transformer models.
 
+Later experiments will look at identifying the specific elements of input text
+that result in a jailbreak. This will involve sequence to sequence models that
+extract the sub-string of the input that results in the jailbreak.
 
 ## Results
 
