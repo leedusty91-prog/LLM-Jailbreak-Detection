@@ -2,6 +2,14 @@
 
 A set of experiments for detecting attempted jailbreaks in LLM prompting
 
+## TODO LIST
+
+* Compile all datasets (jailbreak and non-jailbreak)
+* Categorise all jailbreaks in the types and patterns
+* Implement Machine Learning Experiment
+** Decide on Pre-Trained BERT Models
+
+
 ## Data
 
 We combine datasets from these two repositories:
