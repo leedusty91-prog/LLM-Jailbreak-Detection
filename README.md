@@ -31,10 +31,14 @@ https://arxiv.org/abs/2402.13457
 
 https://arxiv.org/html/2402.16192v2
 
+https://arxiv.org/html/2402.14872v1
+
+https://github.com/ThuCCSLab/JailbreakEval
 
 ## Results
 
-Documentation and Overleaf paper to come.
+Paper being drafted in Overleaf 
+[Read it here](https://www.overleaf.com/project/667239dab5b15503128e776c)
 
 
 
