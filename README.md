@@ -23,6 +23,15 @@ Later experiments will look at identifying the specific elements of input text
 that result in a jailbreak. This will involve sequence to sequence models that
 extract the sub-string of the input that results in the jailbreak.
 
+## References/Papers
+
+https://www.researchgate.net/publication/370981802_Jailbreaking_ChatGPT_via_Prompt_Engineering_An_Empirical_Study
+
+https://arxiv.org/abs/2402.13457
+
+https://arxiv.org/html/2402.16192v2
+
+
 ## Results
 
 Documentation and Overleaf paper to come.

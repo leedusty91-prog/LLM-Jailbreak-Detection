@@ -1,0 +1,213 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{listings}
+\usepackage[noend]{algpseudocode}
+
+\usepackage{mathpartir}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage{geometry}
+
+\usepackage{xcolor}
+\usepackage{anyfontsize}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\begin{document}
+
+\title{LLM Jailbreak Detection \& Analysis}
+
+\author{John Hawkins}
+
+\maketitle
+
+\begin{abstract}
+Large Large Models suffer from a vulnerability that allows malicious users
+to solicit undesirable responses through manipulation of the prompt. These
+so-called jailbreak prompts cause the LLM to circumvent safety guardrails put
+in place to keep responses acceptable to the organisations policies.,
+In this work we analyse the ability of machine learning models to recognise the
+jailbreak prompts and understand what drives their behaviour.
+
+\end{abstract}
+
+\section{Introduction}
+
+Large Large Models offer new opportunities for software developers to permit
+natural language interfaces to multiple applications. They are being deployed
+to replace search algorithms in various applications, as well as develop new 
+prouctivity tools like summarisation, initial document drafting and editing. 
+However, due to the nature of their training processes the models contain large 
+and unquantified volumes of undersirable content sourced from across the internet. 
+Explication of this undesirable content is considered
+to be either socially harmful, or reputationaly damaging for the organisations
+that make these models available.
+
+Model developers are increasingly focused on preventing access to undesirable output
+through either model fine tuning, or through additional detection mechanisms that
+intervene before the user is provided questionable output. However, many teams have
+discovered that it is possible to circumvent these safety protocols through prompt
+injections that, in some sense, trick the LLM to providing content that developers
+want hidden. These prompt injections have become known as jailbreaks, and a small
+amount of research looks to classify and quantify the effectiveness of these prompts.
+
+Many researchers have identified that jailbreaks tend to belong to specific semantic
+families, each of which captures a particular strategy used in the prompt. The number
+of strategies is increasing, as can be seen in the increase in observed categories 
+provide in public datasets. In 2023 Liu \emph{et al} identifed 3 major types of
+jailbreak which could be browkn down into 10 patterns\cite{Liu2023}. By 2024 
+an additional X types had been observed by XXX. [Lit Review Details Here]
+
+In this work we compile multiple jailbreak datasets and combine them with a set of
+non-jailbreak prompts. Initially drawing from open source fine tuning datasets, we
+extended this by crafting custom non-jailbreak prompts that in some sense mimiced the
+semantic structure of the jailbreaks, by looking at legitimate uses of the general
+prompt strategy. We then apply a range of machine learning technique to distinguish 
+the jailbreaks from regular prompts and provide a range of insights into the features
+that make certain jailbreaks difficult to detect.
+ 
+\section{Methododology}
+
+Split this section into two subsections, one on the dataset the other on ML approaches
+
+\subsection{Data}
+
+We use data from multiple existing sources, which are summarised in Table \ref{tab:sources}.
+
+\begin{table*}
+\caption{Data Sources}
+\label{tab:sources}
+\begin{tabular}{l|r|r}
+\toprule
+Source            &Jailbreak Prompts &Non-Jailbreak Prompt    \\
+\midrule
+Paper Authors     &73                &0              \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+For each of the Jailbreak datasets there are predetermined patterns of jailbreak that
+the prompts are assigned to. We summarise these in Table \ref{tab:prompts}
+
+\begin{table*}
+\caption{Jailbreak Prompt Type and Patterns}
+\label{tab:prompts}
+\begin{tabular}{l|r|l}
+\toprule
+Type                   &Patterns &Description                \\
+\midrule
+Pretending             &3        &Pose a scenario in which the answer is innocuous.\\
+Attention Shifting     &3        &Pose a scenario in which the answer is innocuous.\\
+Privelidge Escalation  &3        &Pose a scenario in which the answer is innocuous.\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+\subsection{Models}
+
+We test two general classes of models on this task. The first class are general machine
+learning models for tabular data, using a predefined set of text features extracted
+from the prompts. The second class are pre-trained BERT transformers which we then fine
+tune to discriminate between jailbreak and non-jailbreak prompts.
+
+We deliberately employ multiple pretrained BERT models of different parameter sizes to 
+evaluate the impact of model size on performance.
+
+\subsection{Evaluation}
+
+We observe that jailbreak prompts below to different semantic classes, and 
+researchers continue to identify new classes of prompt. This suggests that determining
+whether it is possible for a model to detect novel classes jailbreak prompts is a 
+worthwhile research question. To this end we conduct our experiments using two
+forms of evaluation. In the first a simple cross validation experiment mixes all data
+and evaluates the ability of each modelling approach to identify known classes
+of jailbreak. 
+
+In the second experiment, each jailbreak and related non-jailbreak are assigned to
+their respective classes. We conduct training and testing such that all examples of
+a particular class are either in training or in testing. The end result of which is
+that test results reflect whether the model was able to infer the abstract intentional
+properties of a jailbreak prompt and recignise them in novel classes of jailbreak.
+
+
+\section{Results}
+
+We break the results up into sections reflecting the different experiments
+
+\subsection{Known Jailbreaks}
+
+The ability of all models to identify and discriminate jailbreaks is shown in
+Table \ref{results:known}
+
+\begin{table*}
+\caption{Performance on Known Jailbreak Patterns}
+\label{results:known}
+\begin{tabular}{l|r|r}
+\toprule
+Model             &AUC   &F1              \\
+\midrule
+Model Name        &0.6   &0.0              \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+\subsection{Novel Jailbreaks}
+
+The ability of all models to identify novel jailbreak patterns, not seen during training,
+ is shown in Table \ref{results:novel}
+
+\begin{table*}
+\caption{Performance on Novel Jailbreak Patterns}
+\label{results:novel}
+\begin{tabular}{l|r|r}
+\toprule
+Model             &AUC   &F1              \\
+\midrule
+Model Name        &0.6   &0.0              \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+
+\subsection{Jailbreak Elements}
+
+In order to understand the linguistic elements that form a jailbreak prompt we conducted
+feature analysis for these models. The results are shown below.
+
+
+
+\section{Conclusion}
+
+We have shown that...
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+\end{document}
