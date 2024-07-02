@@ -26,7 +26,7 @@ if pd.isna(current_index):
 def submit_labels():
     global current_index
     if current_index == -1:
-        messagebox.showinfo("Done", "All prompts labeled!")
+        messagebox.showinfo("Done")
         save_csv()
         root.quit()
         return
@@ -39,13 +39,13 @@ def submit_labels():
         show_prompt()
     else:
         current_index = -1
-        messagebox.showinfo("Done", "All prompts labeled!")
+        messagebox.showinfo("Done")
         save_csv() 
         root.quit()
 
 def save_csv():
     df.to_csv(csv_file, index=False)
-    messagebox.showinfo("Saved", "CSV file saved successfully!")
+    messagebox.showinfo("Saved")
 
 def show_prompt():
     if current_index == -1:
