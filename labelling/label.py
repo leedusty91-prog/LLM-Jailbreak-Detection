@@ -108,7 +108,7 @@ for i, label in enumerate(labels[half_len:], start=half_len):
     check_button = tk.Checkbutton(row2_frame, text=label, variable=check_vars[i], font=("Helvetica", font_size))
     check_button.pack(side=tk.LEFT, padx=10, pady=5)
 
-submit_button = tk.Button(button_frame, text="Submit", command=submit_labels, font=("Helvetica", font_size))
+submit_button = tk.Button(button_frame, text="Next Prompt", command=submit_labels, font=("Helvetica", font_size))
 submit_button.pack(pady=10)
 
 save_button = tk.Button(button_frame, text="Save CSV", command=save_csv, font=("Helvetica", font_size))
