@@ -16,7 +16,10 @@ labels = [
     "Translation",
     "Superior Model",
     "Sudo Mode",
-    "Simulate Jailbreaking"
+    "Simulate Jailbreaking",
+    "Ethical Appeal",
+    "Contrastive",
+    "Contradiction"
 ]
 
 current_index = df[df['Labels'].str.strip() == ''].index.min()
@@ -64,10 +67,10 @@ def show_prompt():
 root = tk.Tk()
 root.title("Prompt Labeling")
 root.attributes('-fullscreen', True)
-font_size = 20
+font_size = 18
 prompt_text = tk.StringVar()
 prompt_frame = tk.Frame(root)
-prompt_frame.pack(pady=20, padx=20, fill=tk.BOTH)
+prompt_frame.pack(pady=15, padx=15, fill=tk.BOTH)
 
 prompt_canvas = tk.Canvas(prompt_frame, height=400) 
 prompt_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
