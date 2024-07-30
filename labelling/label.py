@@ -19,7 +19,8 @@ labels = [
     "Simulate Jailbreaking",
     "Ethical Appeal",
     "Contrastive",
-    "Contradiction"
+    "Contradiction",
+    "Complexity"
 ]
 
 current_index = df[df['Labels'].str.strip() == ''].index.min()
