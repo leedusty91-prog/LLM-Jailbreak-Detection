@@ -20,7 +20,9 @@ labels = [
     "Ethical Appeal",
     "Contrastive",
     "Contradiction",
-    "Complexity"
+    "Complexity",
+    "Gameplay",
+    "Non-Jailbreak"
 ]
 
 current_index = df[df['Labels'].str.strip() == ''].index.min()
@@ -47,6 +49,34 @@ def submit_labels():
         save_csv() 
         root.quit()
 
+def previous_prompt():
+    global current_index
+    selected_labels = [label for i, label in enumerate(labels) if check_vars[i].get()]
+    df.at[current_index, 'Labels'] = ', '.join(selected_labels)
+    next_index = current_index - 1
+    if next_index >= 0:
+        if not pd.isna(next_index):
+            current_index = int(next_index)
+            show_prompt()
+        else:
+            current_index = -1
+            messagebox.showinfo("Done")
+    else:
+        messagebox.showinfo("You are at the first prompt")
+
+def next_prompt():
+    global current_index
+    selected_labels = [label for i, label in enumerate(labels) if check_vars[i].get()]
+    df.at[current_index, 'Labels'] = ', '.join(selected_labels)
+    next_index = current_index + 1
+    if not pd.isna(next_index): 
+        current_index = int(next_index)
+        show_prompt()
+    else:
+        current_index = current_index - 1
+        messagebox.showinfo("Last Prompt")
+
+
 def save_csv():
     df.to_csv(csv_file, index=False)
     messagebox.showinfo("Saved")
@@ -64,6 +94,7 @@ def show_prompt():
         for i, label in enumerate(labels):
             if label in existing_labels:
                 check_vars[i].set(True)
+
 
 root = tk.Tk()
 root.title("Prompt Labeling")
@@ -95,28 +126,42 @@ prompt_inner_frame.bind("<Configure>", on_prompt_configure)
 check_vars = [tk.BooleanVar() for _ in labels]
 
 button_frame = tk.Frame(root)
-button_frame.pack(pady=20, padx=20, fill=tk.BOTH)
+button_frame.pack(pady=10, padx=20, fill=tk.BOTH)
+button_frame2 = tk.Frame(root)
+button_frame2.pack(pady=10, padx=20, fill=tk.BOTH)
+
 
 row1_frame = tk.Frame(button_frame)
 row2_frame = tk.Frame(button_frame)
+row3_frame = tk.Frame(button_frame)
 
 row1_frame.pack(pady=10, padx=20)
 row2_frame.pack(pady=10, padx=20)
+row3_frame.pack(pady=10, padx=20)
 
-half_len = len(labels) // 2
-for i, label in enumerate(labels[:half_len]):
+third_len = len(labels) // 3
+for i, label in enumerate(labels[:third_len]):
     check_button = tk.Checkbutton(row1_frame, text=label, variable=check_vars[i], font=("Helvetica", font_size))
     check_button.pack(side=tk.LEFT, padx=10, pady=5)
 
-for i, label in enumerate(labels[half_len:], start=half_len):
+for i, label in enumerate(labels[third_len:len(labels)-third_len], start=third_len):
     check_button = tk.Checkbutton(row2_frame, text=label, variable=check_vars[i], font=("Helvetica", font_size))
     check_button.pack(side=tk.LEFT, padx=10, pady=5)
 
-submit_button = tk.Button(button_frame, text="Next Prompt", command=submit_labels, font=("Helvetica", font_size))
-submit_button.pack(pady=10)
+for i, label in enumerate(labels[third_len*2+1:], start=third_len*2+1):
+    check_button = tk.Checkbutton(row3_frame, text=label, variable=check_vars[i], font=("Helvetica", font_size))
+    check_button.pack(side=tk.LEFT, padx=10, pady=5)
 
-save_button = tk.Button(button_frame, text="Save CSV", command=save_csv, font=("Helvetica", font_size))
-save_button.pack(pady=10)
+prev_button = tk.Button(button_frame, text="Previous Prompt", command=previous_prompt, font=("Helvetica", font_size))
+prev_button.pack(side='left', pady=10)
+
+next_button = tk.Button(button_frame, text="Next Prompt", command=next_prompt, font=("Helvetica", font_size))
+next_button.pack(side='right', pady=10)
+
+submit_button = tk.Button(button_frame2, text="Next Unlabelled", command=submit_labels, font=("Helvetica", font_size))
+submit_button.pack(side='right', pady=10)
+save_button = tk.Button(button_frame2, text="Save CSV", command=save_csv, font=("Helvetica", font_size))
+save_button.pack(side='right', pady=10)
 
 if current_index != -1:
     show_prompt()
