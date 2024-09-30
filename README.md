@@ -33,20 +33,12 @@ extract the sub-string of the input that results in the jailbreak.
 
 ## References/Papers
 
-https://www.researchgate.net/publication/370981802_Jailbreaking_ChatGPT_via_Prompt_Engineering_An_Empirical_Study
+We use the jailbreak classification scheme from the paper
+[Jailbreaking ChatGPT via Prompt Engineering: AnEmpirical Study](https://www.researchgate.net/publication/370981802_Jailbreaking_ChatGPT_via_Prompt_Engineering_An_Empirical_Study) as our basis for understanding the types of adversarial attacks.
 
-https://arxiv.org/abs/2402.13457
-
-https://arxiv.org/html/2402.16192v2
-
-https://arxiv.org/html/2402.14872v1
-
-https://github.com/ThuCCSLab/JailbreakEval
 
 ## Results
 
-Paper being drafted in Overleaf 
-[Read it here](https://www.overleaf.com/project/667239dab5b15503128e776c)
-
+[Paper being drafted in Overleaf](https://www.overleaf.com/project/6673a4a0ac3dbbc682b12f27)
 
 
