@@ -1,0 +1,17 @@
+pandas
+numpy
+matplotlib
+scikit-learn
+nltk
+nltk
+textblob
+torch
+transformers
+tqdm
+tensorflow
+tf_keras
+lightgbm
+jupyter
+ipython
+ipykernel
+
