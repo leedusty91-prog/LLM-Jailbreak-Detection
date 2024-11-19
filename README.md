@@ -2,6 +2,19 @@
 
 A set of experiments for detecting attempted jailbreaks in LLM prompting
 
+## Setup
+
+The script [SETUP.sh](SETUP.sh) will create a virtual environment,
+install the required packages and download the NLTK data used in the
+preprocessing. 
+
+It will install Jupyter and configure the Jupyter installation to use the 
+virtual environment as the kernel.
+
+When loading the Notebooks be sure to select the environment `venv` so
+that all of the libraries and data are available.
+
+
 ## TODO LIST
 
 * Compile all datasets (jailbreak and non-jailbreak)
