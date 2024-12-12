@@ -17,8 +17,9 @@ that all of the libraries and data are available.
 
 ## TODO LIST
 
+* Insert performance statistics for BERT+LGBM and ExtraTrees in paper
 * Apply Jailbreak Type Classification to all unlabelled jailbreaks
-* * Insert statistics about multi-class classifier and number of labelled points in paper
+* * Insert statistics about the number of labelled points in paper
 * Re-Run the Novel Jailbreak Experiments on the full dataset (with synthetic labels from above)
 * * Insert results into paper
 * Determine how to include some explanation of jailbreak text features
