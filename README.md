@@ -17,10 +17,12 @@ that all of the libraries and data are available.
 
 ## TODO LIST
 
-* Compile all datasets (jailbreak and non-jailbreak)
-* Categorise all jailbreaks in the types and patterns
-* Implement Machine Learning Experiment
-** Decide on Pre-Trained BERT Models
+* Apply Jailbreak Type Classification to all unlabelled jailbreaks
+* * Insert statistics about multi-class classifier and number of labelled points in paper
+* Re-Run the Novel Jailbreak Experiments on the full dataset (with synthetic labels from above)
+* * Insert results into paper
+* Determine how to include some explanation of jailbreak text features
+
 
 
 ## Data
