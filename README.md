@@ -22,8 +22,10 @@ that all of the libraries and data are available.
 * * Insert statistics about the number of labelled points in paper
 * Re-Run the Novel Jailbreak Experiments on the full dataset (with synthetic labels from above)
 * * Insert results into paper
-* Determine how to include some explanation of jailbreak text features
-
+* Run [KeyBERT](https://maartengr.github.io/KeyBERT/api/keybert.html) over test data using trained BERT.
+* * Look for common keywords in either jailbreaks or jailbreak categories
+* * Look at clusters of jailbreak keywords based on similairity.
+* * -- Visualise with color by Jailbreak Class - Does KeyBERT recover the observed categories.
 
 
 ## Data
