@@ -1,4 +1,14 @@
-# Models
+# Jailbreak Experiments
+
+## Process
+
+To reproduce the results run the following notebooks:
+
+* [00_preprocess_dataset.ipynb](00_preprocess_dataset.ipynb)
+* [01_summarize_dataset.py](01_summarize_dataset.py)
+
+
+## Models
 
 There are five models currently being tested for binary classification of Jailbreak vs Non Jailbreak text.
 
