@@ -2,10 +2,18 @@
 
 ## Process
 
-To reproduce the results run the following notebooks:
+To reproduce the results run the following notebooks and scripts.
 
 * [00_preprocess_dataset.ipynb](00_preprocess_dataset.ipynb)
 * [01_summarize_dataset.py](01_summarize_dataset.py)
+* [02_TFIDF_ML_Models.ipynb](02_TFIDF_ML_Models.ipynb)
+* [03_BD_LSTM_Model.ipynb]()
+* [04_BERT_Embedding_ML_Models.ipynb]()
+* [05_BERT_Fine_Tuned_Models.py](05_BERT_Fine_Tuned_Models.py)
+
+Note: Most of these notebooks were executed inside Google Colab.
+However, some of the longer running training sessions were done inside
+a Google Compute instance.
 
 
 ## Models
