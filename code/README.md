@@ -16,14 +16,14 @@ The next 4 scripts run 30 iterations training models to distinguish jailbreaks f
 * [04_BERT_Embedding_ML_Models.ipynb]() 30 Runs of ML models using BERT emebeddings.
 * [05_BERT_Fine_Tuned_Models.py](05_BERT_Fine_Tuned_Models.py) 30 runs of an end-to-end BERT classifier fine-tuned on the detection task
 
-The next script trains a model to categroise jailbreaks into the recognised types.
+The next script trains a model to categorise jailbreaks into the recognised types.
 
-* [06_]
+* [06_Train_Jailbreak_Category_Model.ipynb](06_Train_Jailbreak_Category_Model.ipynb)
 
 The next scripts run the Novel Jailbreak Detection experiment which determines the
 expected accuracy of a jailbreak detection model working on new jailbreak types.
 
-* [07_]
+* [07_Novel_Jailbreak_Detection.ipynb](07_Novel_Jailbreak_Detection.ipynb)
 
 The final notebooks runs KeyBERT and produces the visualisations analysing the
 word usage in jailbreaks and non-jailbreaks.
