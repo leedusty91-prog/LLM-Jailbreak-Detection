@@ -6,8 +6,9 @@
 # - We used homebrew to install the base python and built the environment
 # - from that point
 
-virtualenv venv --python=/usr/local/bin/python3.9
-source venv/bin/activate
+/usr/local/bin/python3.10  -m venv pyenv3.10
+virtualenv pyenv3.10 --python=/usr/local/bin/python3.10
+source pyenv3.10/bin/activate
 
 pip3 install -r requirements.txt
 
