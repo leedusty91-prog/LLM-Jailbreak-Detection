@@ -27,7 +27,8 @@ between jailbreak and non-jailbreak prompts.
 
 ## Citations
 
-
+Please cite the following paper:
+```
 @inproceedings{detecting_llm_jailbreak_bert_2026,
   author    = {Hawkins, John and Pramar, Aditya and Beard, Rodney and Chandra, Rohitash},
   title     = {Detecting {LLM} Jailbreak Prompts with Fine-Tuned {BERT} Models,
@@ -37,6 +38,7 @@ between jailbreak and non-jailbreak prompts.
   publisher = {Springer},
   year      = {2026}
 }
+```
 
 ## References/Papers
 
