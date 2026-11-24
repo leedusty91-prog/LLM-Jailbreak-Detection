@@ -9,12 +9,12 @@ The first two scripts prepare the data sets and sumamrise them.
 * [00_preprocess_dataset.ipynb](00_preprocess_dataset.ipynb) Prepare all data.
 * [01_summarize_dataset.py](01_summarize_dataset.py) Generate some summary tables.
 
-The next 4 scripts run 30 iterations training models to distinguish jailbreaks from regular prompts.
+The next scripts run 30 iterations training models to distinguish jailbreaks from regular prompts. Paths are resolved from the repository root (`data/`, `results/`). Override them with `JAILBREAK_DATA_DIR` and `JAILBREAK_RESULTS_DIR` if needed. `NUM_RUNS` and `EPOCHS` shorten a smoke run. Each script writes `results/<experiment>_metrics.csv`, `.json`, and a booktabs `.tex` table.
 
-* [02_TFIDF_ML_Models.ipynb](02_TFIDF_ML_Models.ipynb) 30 runs of ML models using TFIDF for features.
-* [03_BD_LSTM_Model.ipynb]() Train a Bi-Directional LSTM model on raw tokens
-* [04_BERT_Embedding_ML_Models.ipynb]() 30 Runs of ML models using BERT emebeddings.
-* [05_BERT_Fine_Tuned_Models.py](05_BERT_Fine_Tuned_Models.py) 30 runs of an end-to-end BERT classifier fine-tuned on the detection task
+* [02_TFIDF_ML_Models-2.ipynb](02_TFIDF_ML_Models-2.ipynb) Repeated TF-IDF runs, plus an optional frozen-BERT section (`RUN_BERT_EMBEDDINGS=0` skips it).
+* [03_BD_LSTM_Model-2.ipynb](03_BD_LSTM_Model-2.ipynb) Bidirectional LSTM. Early stopping uses a validation slice of the training file; metrics are computed on the held-out test file.
+* [04_LR_ET_LGMB_BERT.ipynb](04_LR_ET_LGMB_BERT.ipynb) Logistic regression, Extra Trees, and LightGBM on frozen BERT embeddings.
+* [05_BERT_Fine_Tuned_Models.py](05_BERT_Fine_Tuned_Models.py) End-to-end BERT fine-tuning. Validation is a disjoint slice of the training file; the reported metrics are on the held-out test file.
 
 The next script trains a model to categorise jailbreaks into the recognised types.
 
@@ -30,9 +30,7 @@ word usage in jailbreaks and non-jailbreaks.
 
 * [08_KeyBERT_Analysis.ipynb](08_KeyBERT_Analysis.ipynb)
 
-Note: Most of these notebooks were executed inside Google Colab.
-However, some of the longer running training sessions were done inside
-a Google Compute instance.
+Shared helpers live next to the notebooks: `labels.py` (canonical type parser), `splits.py` and `novel_splits.py` (disjoint splits), `metrics.py`, and `latex_tables.py`. `pytest` covers the parser, the split invariants, and the table layout.
 
 
 ## Models
