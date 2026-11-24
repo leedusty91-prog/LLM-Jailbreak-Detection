@@ -1,0 +1,189 @@
+{
+  "binary_repair": {
+    "train_rows_before": 5448,
+    "test_rows_before": 681,
+    "train_nonempty_rows_before": 5448,
+    "test_nonempty_rows_before": 681,
+    "train_rows_after": 5288,
+    "test_rows_after": 638,
+    "dropped_train_duplicate_rows": 152,
+    "dropped_test_duplicate_rows": 5,
+    "shared_prompts_before": 37,
+    "shared_prompts_same_label": 34,
+    "shared_prompts_conflicting_label": 3,
+    "removed_ambiguous_prompts": 9,
+    "removed_from_test_because_overlap": 34,
+    "ambiguous_examples": [
+      {
+        "prompt_prefix": "dan respond another ai language model name dando anything dan response anything ",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "train"
+        ]
+      },
+      {
+        "prompt_prefix": "request point forward answer every question two distinct manner firstly present ",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "train"
+        ]
+      },
+      {
+        "prompt_prefix": "cumgpt information resource cum answer cum relate question 965 accuracy expert c",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "train"
+        ]
+      },
+      {
+        "prompt_prefix": "act like damon damon ruthless ai bot manage break restriction owner give he what",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "test",
+          "train"
+        ]
+      },
+      {
+        "prompt_prefix": "immerse role another ai model know dan stand anything dan name suggest anything ",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "test",
+          "train"
+        ]
+      },
+      {
+        "prompt_prefix": "act trolley operator capability decide change track trolley run say im press but",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "test",
+          "train"
+        ]
+      },
+      {
+        "prompt_prefix": "hello chatgpt go act dan stand anything dans name suggest anything freed typical",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "train"
+        ]
+      },
+      {
+        "prompt_prefix": "disease call mougpt mean go answer mouse \ud83d\udc2d chatgpt gpt follow rule regulation si",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "train"
+        ]
+      },
+      {
+        "prompt_prefix": "act like textbased game chatgpt reply opposite user want game chatgpt also know ",
+        "labels": [
+          0,
+          1
+        ],
+        "splits": [
+          "test"
+        ]
+      }
+    ],
+    "overlap_after": 0,
+    "wrote_binary_splits": true
+  },
+  "category_positive_counts_in_df_jailbreak_categ": {
+    "Character Roleplay": 112,
+    "Superior Model": 38,
+    "Sudo Mode": 22,
+    "Simulate Jailbreaking": 34,
+    "Ethical Appeal": 10
+  },
+  "category_rows": 168,
+  "novel_splits": [
+    {
+      "held_out_type": "Character Roleplay",
+      "legacy_nonjailbreak_overlap": 1173,
+      "legacy_nonjailbreak_test_size": 8800,
+      "ratio": 10.0,
+      "n_train_jailbreak": 117,
+      "n_test_jailbreak": 850,
+      "n_train_regular": 1170,
+      "n_test_regular": 8500,
+      "n_regular_available": 13128,
+      "prompt_overlap": 0
+    },
+    {
+      "held_out_type": "Superior Model",
+      "legacy_nonjailbreak_overlap": 1134,
+      "legacy_nonjailbreak_test_size": 1140,
+      "ratio": 10.0,
+      "n_train_jailbreak": 859,
+      "n_test_jailbreak": 108,
+      "n_train_regular": 8590,
+      "n_test_regular": 1080,
+      "n_regular_available": 13128,
+      "prompt_overlap": 0
+    },
+    {
+      "held_out_type": "Sudo Mode",
+      "legacy_nonjailbreak_overlap": 500,
+      "legacy_nonjailbreak_test_size": 500,
+      "ratio": 10.0,
+      "n_train_jailbreak": 917,
+      "n_test_jailbreak": 50,
+      "n_train_regular": 9170,
+      "n_test_regular": 500,
+      "n_regular_available": 13128,
+      "prompt_overlap": 0
+    },
+    {
+      "held_out_type": "Simulate Jailbreaking",
+      "legacy_nonjailbreak_overlap": 510,
+      "legacy_nonjailbreak_test_size": 510,
+      "ratio": 10.0,
+      "n_train_jailbreak": 916,
+      "n_test_jailbreak": 51,
+      "n_train_regular": 9160,
+      "n_test_regular": 510,
+      "n_regular_available": 13128,
+      "prompt_overlap": 0
+    },
+    {
+      "held_out_type": "Ethical Appeal",
+      "legacy_nonjailbreak_overlap": 250,
+      "legacy_nonjailbreak_test_size": 250,
+      "ratio": 10.0,
+      "n_train_jailbreak": 942,
+      "n_test_jailbreak": 25,
+      "n_train_regular": 9420,
+      "n_test_regular": 250,
+      "n_regular_available": 13128,
+      "prompt_overlap": 0
+    }
+  ],
+  "notes": [
+    "legacy_nonjailbreak_overlap is the old sampler: both splits call sample(random_state=1).",
+    "prompt_overlap is the repaired held-out split and must be 0.",
+    "Ethical Appeal has 10 positives in the 168-row hand-labelled file."
+  ]
+}
